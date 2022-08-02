@@ -1,6 +1,9 @@
 import { dashCaseToCamelCase } from '@angular/compiler/src/util';
 import { Component, NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { AddCategoryComponent } from './compoment/privet/categorys/add-category/add-category.component';
+import { CategoryListComponent } from './compoment/privet/categorys/category-list/category-list.component';
+import { UpdateCategoryComponent } from './compoment/privet/categorys/update-category/update-category.component';
 import { DashboardComponent } from './compoment/privet/dashboard/dashboard.component';
 import { AddProductComponent } from './compoment/privet/products/add-product/add-product.component';
 import { ProductListComponent } from './compoment/privet/products/product-list/product-list.component';
@@ -32,6 +35,18 @@ const routes: Routes = [
   {
     path:'update-product',
     component: UpdateProductComponent
+  },
+  {
+    path:'add-category',
+    component: AddCategoryComponent
+  },
+  {
+    path:'category-list',
+    component: CategoryListComponent
+  },
+  {
+    path:'update-category',
+    component: UpdateCategoryComponent
   }
 ];
 

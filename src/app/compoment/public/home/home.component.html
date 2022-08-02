@@ -1,0 +1,56 @@
+<app-navbar></app-navbar>
+
+<div class="container mt-5">
+    <div class="row">
+        <div class="col-3">
+            <h2>Categories</h2>
+            <ul class="list-group" id="categories">
+                <li class="list-group-item">cat</li>
+                <li class="list-group-item">cat</li>    
+            </ul>
+        </div>
+        <div class="col-9">
+            <h2>Liste des produits</h2>
+
+            <div class="row mb-3">
+                <div class="col-4">
+                    <input id="search-text" type="text" class="form-control" placeholder="search...">
+                </div>
+                <div class="col-2">
+                    <button class="btn btn-primary" onclick="search()">
+                        <i class="fa fa-search"></i>
+                    </button>
+                </div>
+                <div class="col-2">
+                    <input id="prix-min" type="text" class="form-control" placeholder="Prix Min ">
+                </div>
+                <div class="col-2">
+                    <input id="prix-max" type="text" class="form-control" placeholder="Prix Max ">
+                </div>
+                <div class="col-2">
+                    <button class="btn btn-primary" onclick="filter()">
+                        <i class="fa fa-search"></i>
+                    </button>
+                </div>
+            </div>
+
+            <div id="products" class="row row-cols-1 row-cols-md-3 g-4">
+                <div class="col">
+                    <div class="card">
+                        <img src="./../../../../assets/undraw_Mobile_login_re_9ntv.png" class="card-img-top" alt="...">
+                        <div class="card-body">
+                            <h5 class="card-title">cat</h5>
+                            <p class="card-text">555 DT</p>
+                        </div>
+                        <div class="card-footer d-grid gap-2">
+                            <button class="btn btn-block btn-primary btn-sm btn-basket">
+                                <i class="fa fa-plus"></i> Ajouter Panier
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>

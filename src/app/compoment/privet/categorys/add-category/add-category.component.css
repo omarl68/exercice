@@ -1,0 +1,12 @@
+.category-image {
+    width: 100% !important;
+    height: 300px;
+    object-fit: cover;
+  }
+  .category-input {
+    width: 40%;
+  }
+  .upload-input {
+    width: 100%;
+  }
+  

@@ -13,6 +13,9 @@ import { TopBarComponent } from './compoment/privet/top-bar/top-bar.component';
 import { ProductListComponent } from './compoment/privet/products/product-list/product-list.component';
 import { AddProductComponent } from './compoment/privet/products/add-product/add-product.component';
 import { UpdateProductComponent } from './compoment/privet/products/update-product/update-product.component';
+import { CategoryListComponent } from './compoment/privet/categorys/category-list/category-list.component';
+import { AddCategoryComponent } from './compoment/privet/categorys/add-category/add-category.component';
+import { UpdateCategoryComponent } from './compoment/privet/categorys/update-category/update-category.component';
 
 @NgModule({
   declarations: [
@@ -26,7 +29,10 @@ import { UpdateProductComponent } from './compoment/privet/products/update-produ
     TopBarComponent,
     ProductListComponent,
     AddProductComponent,
-    UpdateProductComponent
+    UpdateProductComponent,
+    CategoryListComponent,
+    AddCategoryComponent,
+    UpdateCategoryComponent
   ],
   imports: [
     BrowserModule,
