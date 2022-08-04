@@ -1,12 +1,14 @@
-<app-navbar></app-navbar>
+<app-navbar
+[cartNumber]="cartNumber"></app-navbar>
 
 <div class="container mt-5">
     <div class="row">
         <div class="col-3">
             <h2>Categories</h2>
             <ul class="list-group" id="categories">
-                <li class="list-group-item">cat</li>
-                <li class="list-group-item">cat</li>    
+                <div *ngFor="let category of categories; let i = index">
+                    <li class="list-group-item">{{ category.name }}</li>
+                </div>
             </ul>
         </div>
         <div class="col-9">
@@ -35,19 +37,11 @@
             </div>
 
             <div id="products" class="row row-cols-1 row-cols-md-3 g-4">
-                <div class="col">
-                    <div class="card">
-                        <img src="./../../../../assets/undraw_Mobile_login_re_9ntv.png" class="card-img-top" alt="...">
-                        <div class="card-body">
-                            <h5 class="card-title">cat</h5>
-                            <p class="card-text">555 DT</p>
-                        </div>
-                        <div class="card-footer d-grid gap-2">
-                            <button class="btn btn-block btn-primary btn-sm btn-basket">
-                                <i class="fa fa-plus"></i> Ajouter Panier
-                            </button>
-                        </div>
-                    </div>
+                <div *ngFor="let product of productList; let i = index">
+                   <app-product-item
+                   [product]="product"   
+                   (item)="addToCart($event)">
+                   </app-product-item>
                 </div>
             </div>
 

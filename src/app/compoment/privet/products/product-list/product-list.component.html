@@ -5,6 +5,84 @@
         <!-- Main Content -->
         <div id="content">
             <app-top-bar></app-top-bar>
+            <div id="layoutSidenav_content">
+                <main>
+                  <div class="container-fluid px-4">
+                    <h2 style="color: black">Articles</h2>
+                    <div>
+                      <button
+                        type="button"
+                        class="btn btn-primary mb-3"
+                        data-toggle="modal"
+                        data-target=".bd-example-modal-sm"
+                        routerLink="/add-product"
+                      >
+                        + ajouter
+                      </button>
+                      <div
+                        class="modal fade bd-example-modal-sm"
+                        tabindex="-1"
+                        role="dialog"
+                        aria-labelledby="mySmallModalLabel"
+                        aria-hidden="true"
+                      >
+                        <div class="modal-dialog modal-sm">
+                          <div class="modal-content">...</div>
+                        </div>
+                      </div>
+                      <table class="fl-table">
+                        <thead>
+                          <tr>
+                            <th>N°</th>
+                            <th>titre</th>
+                            <th>image</th>
+                           <th>price</th>
+                           <th>description </th>
+                           <th>categroy</th>
+                            <th>#</th>
+                          </tr>
+                        </thead>
+                        <tbody >
+                          <tr *ngFor="let article of articleList;  let i = index">
+                            <td>{{ i + 1 }}</td>
+                            <td>{{ article.name }}</td>
+                            <td>
+                              <img
+                                src="{{ baseUrl }}/{{ article.image }}"
+                                class="image-fluid article-image"
+                                alt=""
+                              />
+                            </td>
+                            <td>{{ article.price }}</td>
+                            <td>{{ article.description }}</td>
+                            <td >{{ article.idCategory }}</td>
+                            <td>
+                              <button
+                                class="btn btn-warning mx-2"
+                                [routerLink]="['/update-product/', article._id]"
+                              >
+                                <i
+                                  class="fa fa-pencil"
+                                  style="color: white"
+                                  aria-hidden="true"
+                                ></i>
+                              </button>
+                              <button
+                                class="btn btn-danger mx-2"
+                                style="color: white"
+                                (click)="delete(article._id, i)"
+                              >
+                                <i class="fa fa-trash" aria-hidden="true"></i>
+                              </button>
+                            </td>
+                          </tr>
+                        </tbody>
+                        <tbody></tbody>
+                      </table>
+                    </div>
+                  </div>
+                </main>
+              </div>
         </div>
     </div>
 </div>

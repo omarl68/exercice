@@ -5,7 +5,135 @@
         <!-- Main Content -->
         <div id="content">
             <app-top-bar></app-top-bar>
-
+            <div id="layoutSidenav_content">
+                <main>
+                  <div class="container-fluid px-4">
+                    <h1 class="mt-4">Product</h1>
+                    <ol class="breadcrumb mb-4">
+                      <li class="breadcrumb-item active">Ajouter un nouveau formation</li>
+                    </ol>
+          
+                    <form [formGroup]="myForm" (ngSubmit)="add()">
+                      <div>
+                        <img
+                          [src]="imageUrl"
+                          class="image-fluid training-image"
+                          alt=""
+                          style="width: 150px"
+                        />
+                        <div class="form-group">
+                          <input
+                            type="file"
+                            class="form-control upload-input"
+                            (change)="save($event)"
+                            id="customFile"
+                          />
+                        </div>
+                      </div>
+                      <div class="form-group mt-2">
+                        <div class="row">
+                          <div class="col-lg-6 my-2">
+                            <label for="exampleFormControlFile1"
+                              >Nom de product :
+                            </label>
+                            <input
+                              type="text"
+                              class="form-control"
+                              formControlName="name"
+                              id="name"
+                            />
+                            <div *ngIf="name?.invalid && name?.touched">
+                              <small
+                                *ngIf="name?.errors?.['required']"
+                                class="text-danger"
+                                >nom est requis<br
+                              /></small>
+                            </div>
+                          </div>
+           
+                          <div class="col-lg-6 my-2">
+                            <label for="exampleFormControlFile1">price : </label>
+                            <input
+                              type="text"
+                              class="form-control"
+                              formControlName="price"
+                              id="price"
+                            />
+                            <div *ngIf="name?.invalid && name?.touched">
+                              <small
+                                *ngIf="name?.errors?.['required']"
+                                class="text-danger"
+                                >prix est requis<br
+                              /></small>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+          
+                      <div class="form-group">
+                        <div class="row">
+                            <div class="col-lg-6 my-2">
+                                <label for="exampleFormControlFile1"
+                                >description :
+                              </label>
+                              <input
+                                type="text"
+                                class="form-control"
+                                formControlName="description"
+                                id="description"
+                              />
+                              <div *ngIf="description?.invalid && description?.touched">
+                                <small
+                                  *ngIf="description?.errors?.['required']"
+                                  class="text-danger"
+                                  >nom est requis<br
+                                /></small>
+                              </div>
+                            </div>
+                          <div class="col-lg-6 my-2">
+                            <label for="exampleFormControlFile1" class=""
+                              >catégorie :</label
+                            >
+                            <select
+                              class="form-select"
+                              formControlName="idCategory"
+                              id="idCategory"
+                              aria-label="Default select example"
+                            >
+                              <option [selected]="true">
+                                selectionner une catégorie
+                              </option>
+                              <option
+                                *ngFor="let category of categoryList; let i = index"
+                                [value]="category._id"
+                              >
+                                {{ category.name }}
+                              </option>
+                            </select>
+                            <div *ngIf="idCategory?.invalid && idCategory?.touched">
+                              <small
+                                *ngIf="idCategory?.errors?.['required']"
+                                class="text-danger"
+                                >catégorie est requis<br
+                              /></small>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                
+          
+          
+                      <button
+                        class="btn btn-primary mt-2"
+                        [disabled]="myForm.invalid"
+                        type="submit"
+                      >
+                        ajouter
+                      </button>
+                    </form>
+                  </div>
+                </main>
+              </div>
 
 
         </div>

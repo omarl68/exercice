@@ -1,4 +1,4 @@
-<app-navbar></app-navbar>
+<app-navbar [cartNumber]="cartNumber"></app-navbar>
 <section class="h-100 h-custom" style="background-color: #eee;">
     <div class="container h-100 py-5">
         <div class="row d-flex justify-content-center align-items-center h-100">
@@ -12,40 +12,46 @@
                                 <h3 class="mb-5 pt-2 text-center fw-bold text-uppercase">Your products</h3>
 
                                 <div id="products">
-                                    <div class="d-flex align-items-center mb-5">
-                                        <div class="flex-shrink-0">
-                                            <img src="./../../../../assets/undraw_Mobile_login_re_9ntv.png"
-                                                class="img-fluid" style="width: 150px;" alt="Generic placeholder image">
+                                    <div *ngIf="productList == null || productList.length == 0">
+                                       
+                                        <div class="alert alert-warning" role="alert">
+                                            Aucun produit trouvé !
                                         </div>
-                                        <div class="flex-grow-1 ms-3">
-                                            <a onclick="" class="float-end text-black" style="cursor:pointer"><i class="fas fa-times"></i></a>
-                                            <h5 class="text-primary">cat</h5>
-                        
-                                            <div class="d-flex align-items-center">
-                                                <p class="fw-bold mb-0 me-5 pe-3">555 DT</p>
-                                                <div class="def-number-input number-input safari_only">
-                                                    <button
-                                                        onclick="down()"
-                                                        class="minus"></button>
-                        
-                                                    <input class="quantity fw-bold text-black" min="1" name="quantity"
-                                                        id="1"
-                                                        value="1" type="number" readonly>
-                        
-                                                    <button
-                                                        onclick="add()"
-                                                        class="plus"></button>
+                                    </div>
+                                    <div *ngIf="productList != null">
+                                        <div *ngFor="let product of productList; let i = index;">
+                                                 <div class="d-flex align-items-center mb-5">
+                                                <div class="flex-shrink-0">
+                                                    <img src="{{baseUrl}}{{product.image}}" class="img-fluid" style="width: 150px;"
+                                                        alt="Generic placeholder image">
+                                                </div>
+                                                <div class="flex-grow-1 ms-3">
+                                                    <a (click)="removeitem(product.idCategory)" class="float-end text-black" style="cursor:pointer"><i
+                                                            class="fas fa-times"></i></a>
+                                                    <h5 class="text-primary">{{product.name}}</h5>
+
+                                                    <div class="d-flex align-items-center">
+                                                        <p class="fw-bold mb-0 me-5 pe-3">{{product.price * product.qte}} DT</p>
+                                                        <div class="def-number-input number-input safari_only">
+                                                            <button onclick="this.parentNode.querySelector('input[type=number]').stepDown()" (click)="moin(product.idCategory)" class="minus"></button>
+
+                                                            <input class="quantity fw-bold text-black" min="1"
+                                                                name="quantity" id="quantity" value="{{product.qte}}" type="number" readonly>
+
+                                                            <button onclick="this.parentNode.querySelector('input[type=number]').stepUp()" (click)="add(product.idCategory)" class="plus"></button>
+                                                        </div>
+                                                    </div>
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
-                                       
+                                   
+
                                 </div>
 
                                 <hr class="mb-4" style="height: 2px; background-color: #1266f1; opacity: 1;">
 
-                                <div class="d-flex justify-content-between p-2 mb-2"
-                                    style="background-color: #e1f5fe;">
+                                <div class="d-flex justify-content-between p-2 mb-2" style="background-color: #e1f5fe;">
                                     <h5 class="fw-bold mb-0">Total:</h5>
                                     <h5 class="fw-bold mb-0" id="total"></h5>
                                 </div>
@@ -58,14 +64,14 @@
                                 <form class="mb-5">
 
                                     <div class="form-outline mb-5">
-                                        <input type="text" id="typeText" class="form-control form-control-lg"
-                                            siez="17" value="1234 5678 9012 3457" minlength="19" maxlength="19" />
+                                        <input type="text" id="typeText" class="form-control form-control-lg" siez="17"
+                                            value="1234 5678 9012 3457" minlength="19" maxlength="19" />
                                         <label class="form-label" for="typeText">Card Number</label>
                                     </div>
 
                                     <div class="form-outline mb-5">
-                                        <input type="text" id="typeName" class="form-control form-control-lg"
-                                            siez="17" value="John Smith" />
+                                        <input type="text" id="typeName" class="form-control form-control-lg" siez="17"
+                                            value="John Smith" />
                                         <label class="form-label" for="typeName">Name on card</label>
                                     </div>
 
@@ -80,9 +86,8 @@
                                         <div class="col-md-6 mb-5">
                                             <div class="form-outline">
                                                 <input type="password" id="typeText"
-                                                    class="form-control form-control-lg"
-                                                    value="&#9679;&#9679;&#9679;" size="1" minlength="3"
-                                                    maxlength="3" />
+                                                    class="form-control form-control-lg" value="&#9679;&#9679;&#9679;"
+                                                    size="1" minlength="3" maxlength="3" />
                                                 <label class="form-label" for="typeText">Cvv</label>
                                             </div>
                                         </div>

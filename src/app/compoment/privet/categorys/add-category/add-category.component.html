@@ -15,7 +15,7 @@
                       </li>
                     </ol>
           
-                    <form >
+                    <form [formGroup]="myForm" (ngSubmit)="add()">
                       <div class="input-sec">
                         <div class="form-group">
                           <div>
@@ -29,14 +29,14 @@
                             formControlName="name"
                             id="categoryName"
                           />
-                        <!-- <div *ngIf="name?.invalid && name?.touched">
+                          <div *ngIf="name?.invalid && name?.touched">
                             <small *ngIf="name?.errors?.['required']" class="text-danger"
                               ><b>Le nom est requis</b><br
                             /></small>
                             <small *ngIf="name?.errors?.['minlength']" class="text-danger"
                               ><b> nom incorrect</b><br
                             /></small>
-                          </div>--> 
+                          </div>
                         </div>
                       </div>
           

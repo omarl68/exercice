@@ -13,7 +13,7 @@
                       <li class="breadcrumb-item active">modifier</li>
                     </ol>
           
-                    <form >
+                    <form [formGroup]="updateCategoryForm">
                       <div class="input-sec">
                         <div class="form-group">
                           <div>
@@ -33,6 +33,7 @@
                       <button
                       class="btn btn-primary mt-2"
                       style="color: white"
+                      (click)="update()"
                     >
                       modifier
                     </button>

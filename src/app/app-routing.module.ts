@@ -33,7 +33,7 @@ const routes: Routes = [
     component: ProductListComponent
   },
   {
-    path:'update-product',
+    path:'update-product/:id',
     component: UpdateProductComponent
   },
   {
@@ -45,7 +45,7 @@ const routes: Routes = [
     component: CategoryListComponent
   },
   {
-    path:'update-category',
+    path:'update-category/:id',
     component: UpdateCategoryComponent
   }
 ];

@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { HttpClientModule } from '@angular/common/http';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -16,6 +17,9 @@ import { UpdateProductComponent } from './compoment/privet/products/update-produ
 import { CategoryListComponent } from './compoment/privet/categorys/category-list/category-list.component';
 import { AddCategoryComponent } from './compoment/privet/categorys/add-category/add-category.component';
 import { UpdateCategoryComponent } from './compoment/privet/categorys/update-category/update-category.component';
+import { ProductItemComponent } from './compoment/public/product-item/product-item.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+;
 
 @NgModule({
   declarations: [
@@ -32,11 +36,16 @@ import { UpdateCategoryComponent } from './compoment/privet/categorys/update-cat
     UpdateProductComponent,
     CategoryListComponent,
     AddCategoryComponent,
-    UpdateCategoryComponent
+    UpdateCategoryComponent,
+    ProductItemComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    HttpClientModule,
+    FormsModule,
+    ReactiveFormsModule,
+
   ],
   providers: [],
   bootstrap: [AppComponent]

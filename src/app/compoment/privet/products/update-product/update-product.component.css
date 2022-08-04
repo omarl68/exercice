@@ -1,0 +1,15 @@
+.training-image {
+    width: 100% !important;
+    height: 300px;
+    object-fit: cover;
+  }
+  .category-input {
+    width: 100%;
+  }
+  .upload-input {
+    width: 100%;
+  }
+  label{
+    margin: 5px 0px
+  }
+  
