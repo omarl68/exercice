@@ -24,7 +24,7 @@ export class UpdateProductComponent implements OnInit {
     private categoryService: CategoryService,
     private router: Router,
     private route: ActivatedRoute,
- 
+
   ) {
     let formControls = {
       name: new FormControl(''),
@@ -102,16 +102,17 @@ export class UpdateProductComponent implements OnInit {
 
   update() {
     let data = this.myForm.value;
+    // let idUser = this.route.snapshot.paramMap.get('id');
     let formData = new FormData();
-    formData.append('name', data.name),
-    formData.append('price', data.price),
-      formData.append('description', data.description),
-      formData.append('idCategory', data.idCategory), 
-      formData.append('picture', this.selectedFile);
+    formData.append('name', data.name);
+    formData.append('price', data.price);
+    formData.append('description', data.description);
+    formData.append('idCategory', data.idCategory);
+    formData.append('picture', this.selectedFile);
     this.productService.addProducts(formData).subscribe({
       next: (result) => {
         console.log(result);
-       
+
         this.router.navigate(['/product-list']);
       },
       error: (err) => {

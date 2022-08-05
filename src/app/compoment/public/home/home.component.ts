@@ -21,29 +21,7 @@ export class HomeComponent implements OnInit {
   
 
   constructor(private productService: ProductService, private route: ActivatedRoute,  private categoryService: CategoryService,) { }
-  addToCart(event: any) {
-    this.cartNumber = Number(this.cartNumber) + 1
-    localStorage.setItem("cart-Number", JSON.stringify(this.cartNumber))
 
-    // let product = Product.find((prod)=>{return prod.idCategory == event.item.idCategory})
-    let products = this.productList.find((prod) => { return prod.idCategory == event })
-    // this.cartProducts.find(item => item.id == event.id)
-    let productInCart = this.cartProducts.find((prod) => { return prod.idCategory == event })
-
-
-    if (productInCart == null) {
-
-      products.qte = 1
-      this.cartProducts.push(products)
-    } else {
-      let index = this.cartProducts.indexOf(productInCart)
-      this.cartProducts[index].qte++
-    }
-
-
-    localStorage.setItem('cart', JSON.stringify(this.cartProducts))
-    
-  }
   ngOnInit(): void {
     this.categoryService.getAllCategories().subscribe({
       next: (result) => {
@@ -70,9 +48,34 @@ export class HomeComponent implements OnInit {
     }
 
 
-
+    this.Products = JSON.parse(localStorage.getItem('cart')!)
+    if (this.Products != null) {
+      this.cartProducts = JSON.parse(localStorage.getItem('cart')!)
   }
+  }
+  addToCart(event: any) {
+    this.cartNumber = Number(this.cartNumber) + 1
+    localStorage.setItem("cart-Number", JSON.stringify(this.cartNumber))
 
+    // let product = Product.find((prod)=>{return prod.idCategory == event.item.idCategory})
+    let products = this.productList.find((prod) => { return prod.idCategory == event })
+    // this.cartProducts.find(item => item.id == event.id)
+    let productInCart = this.cartProducts.find((prod) => { return prod.idCategory == event })
+
+
+    if (productInCart == null) {
+
+      products.qte = 1
+      this.cartProducts.push(products)
+    } else {
+      let index = this.cartProducts.indexOf(productInCart)
+      this.cartProducts[index].qte++
+    }
+
+
+    localStorage.setItem('cart', JSON.stringify(this.cartProducts))
+    
+  }
 
 
 }
