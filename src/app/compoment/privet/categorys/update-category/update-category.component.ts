@@ -45,7 +45,7 @@ export class UpdateCategoryComponent implements OnInit {
     let idUser = this.route.snapshot.paramMap.get('id');
     let user = new Category(data.name, idUser!);
 
-    this.categoryService.updateCategory(user).subscribe(
+    this.categoryService.updateCategory(user,idUser!).subscribe(
       {
         next: (res) => {
           console.log(res);

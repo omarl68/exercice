@@ -27,10 +27,10 @@ export class UpdateProductComponent implements OnInit {
  
   ) {
     let formControls = {
-      name: new FormControl('', [Validators.required]),
-      description: new FormControl('', [Validators.required]),
-      idCategory: new FormControl('', [Validators.required]),
-      price: new FormControl('', [Validators.required]),
+      name: new FormControl(''),
+      description: new FormControl(''),
+      idCategory: new FormControl(''),
+      price: new FormControl(''),
     };
 
     this.myForm = this.fb.group(formControls);

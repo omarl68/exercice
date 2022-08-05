@@ -26,8 +26,8 @@ export class CategoryService {
     return this.http.post<any>(this.categoryUrl, category);
   }
 
-  updateCategory(category: Category) {
-    return this.http.patch<any>(this.categoryUrl, category);
+  updateCategory(category: Category,id:String) {
+    return this.http.patch<any>(this.categoryUrl + id, category);
   }
  
 }
